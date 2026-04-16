@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects · Avi Sharma</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Avi<span>.</span></a>
+    <button type="button" class="mobile-toggle" aria-expanded="false" aria-controls="nav-main">Menu</button>
+    <nav id="nav-main" aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="overview.html">Overview</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
+        <li><a href="video.html">Video</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="https://github.com/Avish16" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="section prose" style="max-width: var(--max); margin: 0 auto; padding-top: 2rem;">
+    <h1 class="section-title" style="margin-bottom: 0.5rem;">Project descriptions</h1>
+    <p style="color: var(--muted); margin-top: 0;">Written for readers who may not work in data science day to day—focused on problem, approach, and what I learned.</p>
+
+    <h2 id="mediexplain">MediExplain — human-centered medical AI</h2>
+    <p><strong>Stack:</strong> LLMs, RAG, ChromaDB, Streamlit · <a href="https://github.com/Avish16/mediexplain" target="_blank" rel="noopener">GitHub repository</a></p>
+    <p>Many patients and caregivers receive long, technical medical documents. MediExplain is a system that turns that complexity into structured, adaptive explanations. I designed a modular <strong>multi-agent</strong> setup with many specialized components (routing, validation, and domain-specific &ldquo;bots&rdquo;) so answers stay organized instead of becoming a single opaque block of text.</p>
+    <p>At the core is <strong>retrieval-augmented generation</strong>: relevant passages are pulled from a curated medical corpus stored in ChromaDB, and the model grounds its explanations in that context. I also built explicit <strong>safety and validation</strong> layers—JSON validation, retries, and consistency checks—because healthcare-adjacent tools need predictable behavior, not just fluent language. A Streamlit front end makes the workflow transparent and keeps the experience approachable for non-technical users.</p>
+
+    <h2 id="drowsiness">Driver drowsiness detection (deep learning)</h2>
+    <p><strong>Stack:</strong> Python, CNN, OpenCV, LSTM · <a href="https://github.com/Avish16/Deep_Learning-Drowsiness_Detection" target="_blank" rel="noopener">GitHub repository</a></p>
+    <p>Drowsy driving is dangerous because it is subtle: brief eye closures can be normal blinks, while sustained closure is a different signal. I built a system that works from <strong>infrared-style eye images</strong> and video, classifies eye state with a convolutional network trained on a large labeled set (85K+ images in the project narrative), and then <strong>aggregates over time</strong> so the model distinguishes a long closure from ordinary blinking.</p>
+    <p>The pipeline extracts eye regions using facial landmarks, normalizes inputs, fuses left/right eye predictions, and runs inference with OpenCV overlays. I optimized for real-time use with frame skipping and threshold tuning to balance <strong>detection reliability</strong> against <strong>false alarms</strong>. The same ideas support both live webcam demos and offline video review.</p>
+
+    <h2 id="datathon">DataThon — Syracuse code violations &amp; spatial grid analytics</h2>
+    <p><strong>Stack:</strong> Python, GeoPandas, Folium, scikit-learn · <a href="https://github.com/Avish16/DataThon26" target="_blank" rel="noopener">GitHub repository</a></p>
+    <p>In this datathon project, our team connected <strong>city code violations</strong> to the <strong>property assessment roll</strong> and built a <strong>spatial grid</strong> over Syracuse. The goal is practical: understand where violations cluster, how they relate to assessment and neighborhood context, and communicate results on maps stakeholders can explore.</p>
+    <p>My contributions align with the public write-up in the repo: joining data on parcel identifiers, engineering grid-level features, and helping produce <strong>interactive Folium maps</strong>—for example risk surfaces, prediction dashboards, and vacancy-related views. The emphasis is reproducible analysis and clear visuals rather than a black-box score nobody can interpret.</p>
+
+    <h2 id="bitcoin">Bitcoin flash crash prediction</h2>
+    <p><strong>Stack:</strong> Jupyter, Python · <a href="https://github.com/Avish16/Bitcoin-FlashCrash-Prediction" target="_blank" rel="noopener">GitHub repository</a></p>
+    <p>Cryptocurrency markets exhibit <strong>extreme movements</strong> that are hard to model with off-the-shelf assumptions. This repository captures my notebook-driven workflow: exploratory analysis, feature thinking, and experiments around flash-crash-style outcomes. It is a strong example of how I iterate in a research notebook—documenting steps so results can be reviewed—and how I connect quantitative metrics to the economic intuition that non-experts care about (risk, tail events, stability of predictions).</p>
+
+    <h2>Other work (resume highlights)</h2>
+    <p><strong>Northwind data warehouse &amp; BI</strong> — Dimensional modeling in Snowflake, SQL pipelines, and Power BI dashboards for revenue and operations KPIs (<a href="https://github.com/Avish16/Northwind" target="_blank" rel="noopener">GitHub</a>). <strong>Energy forecasting (R Shiny)</strong> — Large-scale time series, ARIMA and gradient-boosted models, and an interactive dashboard for planning scenarios. These projects reinforced SQL, stakeholder metrics, and storytelling with charts—skills that complement my ML-heavy portfolio pieces.</p>
+
+    <p style="margin-top: 2rem;"><a href="overview.html">← Back to overview</a> · <a href="index.html">Home</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Avi Sharma · <a href="mailto:asharm78@syr.edu">asharm78@syr.edu</a></p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
