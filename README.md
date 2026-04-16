@@ -1,4 +1,4 @@
-# Avi Sharma — ePortfolio
+# Avi Sharma - ePortfolio
 
 Static site (HTML/CSS) for the M.S. Applied Data Science portfolio: overview, projects, video placeholder, and reflection blog.
 
