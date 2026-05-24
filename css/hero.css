@@ -1,0 +1,519 @@
+/* =========================================================
+   HERO — Night sky, beacon, waves, display name
+   Foolproof centering: everything that needs to be centered
+   is a flex child of one column container.
+   ========================================================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--nav-h) 1rem 2rem;
+}
+
+/* ---------- BACKGROUND LAYERS (behind content) ---------- */
+.hero__sky {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(ellipse at 50% 30%, #1a2440 0%, #0e1428 50%, #06080f 100%);
+}
+
+.hero__stars {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero__star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: twinkle 4s ease-in-out infinite;
+}
+.hero__star--cyan { background: var(--c-data); }
+.hero__star--orange { background: var(--c-signal); }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.hero__moon {
+  position: absolute;
+  top: 12%;
+  right: 10%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #f0f6fa 0%, #c8dceb 60%, #7ab0d8 100%);
+  box-shadow:
+    0 0 60px rgba(168, 200, 232, 0.25),
+    0 0 120px rgba(168, 200, 232, 0.12);
+  z-index: -1;
+}
+@media (max-width: 768px) {
+  .hero__moon { width: 50px; height: 50px; top: 10%; right: 8%; }
+}
+
+.hero__constellation {
+  position: absolute;
+  top: 12%;
+  left: 8%;
+  width: 240px;
+  height: 100px;
+  z-index: -1;
+  opacity: 0.4;
+  pointer-events: none;
+}
+@media (max-width: 768px) {
+  .hero__constellation { display: none; }
+}
+
+.hero__waves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+}
+
+/* ==========================================================
+   CENTER COLUMN
+   Everything that should be horizontally centered lives here.
+   Flex column with align-items: center → no manual centering
+   for any child. Title, beacon, scroll prompt all use the
+   SAME centering authority.
+   ========================================================== */
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+/* ---------- HERO TYPE ---------- */
+.hero__eyebrow {
+  margin: 0 0 var(--sp-5);
+  opacity: 0;
+  animation: fadeUp 0.9s var(--ease-out) 0.2s forwards;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0;
+  font-size: clamp(3rem, 12vw, 8rem);
+}
+.hero__title-first {
+  display: block;
+  color: var(--c-signal);
+  opacity: 0;
+  animation: fadeUp 0.9s var(--ease-out) 0.4s forwards;
+}
+.hero__title-last {
+  display: block;
+  color: var(--c-cream);
+  opacity: 0;
+  animation: fadeUp 0.9s var(--ease-out) 0.55s forwards;
+}
+
+.hero__tagline {
+  margin: var(--sp-6) 0 0;
+  color: var(--c-text-mute);
+  font-size: var(--fs-lead);
+  max-width: 540px;
+  opacity: 0;
+  animation: fadeUp 0.9s var(--ease-out) 0.7s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- BEACON (in flow, below tagline, before scroll prompt) ---------- */
+.hero__beacon {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: var(--sp-10) auto 0;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.hero__beacon-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 154, 77, 0.5) 0%, rgba(255, 122, 61, 0.15) 40%, transparent 70%);
+  animation: beaconPulse 3s ease-in-out infinite;
+}
+@keyframes beaconPulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.7; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.hero__beacon-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- SCROLL PROMPT (in flow, after beacon) ---------- */
+.hero__scroll {
+  margin-top: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  color: var(--c-data);
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  opacity: 0;
+  animation: fadeUp 0.9s var(--ease-out) 1s forwards;
+  z-index: 2;
+}
+.hero__scroll-arrow {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--c-data), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(4px); }
+}
+
+/* =========================================================
+   OPERATOR PROFILE SECTION (Dossier)
+   ========================================================= */
+.dossier {
+  padding: var(--sp-24) 0 var(--sp-16);
+  position: relative;
+}
+.dossier__header { margin-bottom: var(--sp-8); }
+.dossier__title { font-size: clamp(2rem, 5vw, 3.5rem); margin-top: var(--sp-3); }
+
+.dossier__grid {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: var(--sp-8);
+  align-items: stretch;
+}
+@media (max-width: 880px) {
+  .dossier__grid { grid-template-columns: 1fr; }
+}
+
+.dossier__photo {
+  position: relative;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: var(--c-night-2);
+  border: 1px solid var(--c-border);
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: flex-end;
+}
+.dossier__photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: opacity var(--dur-slow) var(--ease-in-out), transform 1.2s var(--ease-out);
+}
+/* Both images stacked; secondary fades in on hover for a clean crossfade */
+.dossier__photo-img--primary {
+  opacity: 1;
+  z-index: 0;
+}
+.dossier__photo-img--secondary {
+  opacity: 0;
+  z-index: 1;
+}
+.dossier__photo:hover .dossier__photo-img--primary {
+  opacity: 0;
+  transform: scale(1.02);
+}
+.dossier__photo:hover .dossier__photo-img--secondary {
+  opacity: 1;
+  transform: scale(1.02);
+}
+.dossier__photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a2440 0%, #0e1428 100%);
+  color: var(--c-text-dim);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  z-index: 0;
+  text-align: center;
+  padding: 0 var(--sp-4);
+}
+.dossier__photo-overlay {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  padding: var(--sp-8) var(--sp-4) var(--sp-4);
+}
+.dossier__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #fff;
+  margin: 0;
+}
+.dossier__tag {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  color: var(--c-signal);
+  text-transform: uppercase;
+}
+
+.dossier__info {
+  background: var(--c-night-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+.dossier__bio {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--c-text);
+  margin: 0;
+}
+.dossier__bio strong { color: var(--c-signal); font-weight: 600; }
+.dossier__bio em { color: var(--c-data); font-style: normal; font-weight: 500; }
+
+.dossier__meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.dossier__section-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  color: var(--c-text-dim);
+  text-transform: uppercase;
+  margin-bottom: var(--sp-3);
+}
+
+.dossier__skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dossier__connect-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  align-items: center;
+}
+.dossier__icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--c-night-3);
+  border: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text-mute);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.dossier__icon-btn:hover {
+  border-color: var(--c-signal);
+  color: var(--c-signal);
+  transform: translateY(-2px);
+}
+.dossier__icon-btn svg { width: 16px; height: 16px; }
+
+/* =========================================================
+   FEATURED MISSIONS
+   ========================================================= */
+.missions { padding: var(--sp-16) 0; }
+.missions__header { margin-bottom: var(--sp-8); }
+.missions__title { font-size: clamp(2rem, 5vw, 3.5rem); margin-top: var(--sp-3); }
+.missions__sub {
+  color: var(--c-text-mute);
+  margin-top: var(--sp-3);
+  max-width: 60ch;
+}
+
+.missions__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-5);
+}
+@media (max-width: 768px) {
+  .missions__grid { grid-template-columns: 1fr; }
+}
+
+.mission-card {
+  position: relative;
+  background: var(--c-night-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  transition: all var(--dur-med) var(--ease-out);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+.mission-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 122, 61, 0.08) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-out);
+  pointer-events: none;
+}
+.mission-card:hover {
+  border-color: var(--c-border-warm);
+  transform: translateY(-4px);
+}
+.mission-card:hover::before { opacity: 1; }
+
+.mission-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--sp-3);
+}
+.mission-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--c-text);
+  margin: 0;
+  line-height: 1.3;
+}
+.mission-card__sub {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  color: var(--c-text-dim);
+  text-transform: uppercase;
+  margin-top: var(--sp-1);
+}
+.mission-card__desc {
+  color: var(--c-text-mute);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+.mission-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+.mission-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.1em;
+  color: var(--c-signal);
+  text-transform: uppercase;
+  margin-top: var(--sp-2);
+}
+.mission-card__cta-arrow {
+  display: inline-block;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.mission-card:hover .mission-card__cta-arrow { transform: translateX(4px); }
+
+/* Static variant — no link, no hover lift, no cursor pointer */
+.mission-card--static {
+  cursor: default;
+}
+.mission-card--static:hover {
+  border-color: var(--c-border);
+  transform: none;
+}
+.mission-card--static:hover::before { opacity: 0; }
+
+/* Wide variant — spans the full grid width */
+.mission-card--wide {
+  grid-column: 1 / -1;
+}
+@media (max-width: 768px) {
+  .mission-card--wide { grid-column: auto; }
+}
+
+/* =========================================================
+   END CTA STRIP
+   ========================================================= */
+.endcta {
+  padding: var(--sp-16) 0;
+  text-align: center;
+  border-top: 1px solid var(--c-border);
+}
+.endcta__title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  margin: 0;
+}
+.endcta__sub {
+  color: var(--c-text-mute);
+  margin-top: var(--sp-3);
+  max-width: 50ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.endcta__buttons {
+  display: flex;
+  gap: var(--sp-4);
+  justify-content: center;
+  margin-top: var(--sp-6);
+  flex-wrap: wrap;
+}

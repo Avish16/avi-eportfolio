@@ -1,0 +1,90 @@
+/* =========================================================
+   DESIGN TOKENS
+   Single source of truth for colors, fonts, spacing.
+   Change once here, updates everywhere.
+   ========================================================= */
+
+:root {
+  /* ---------- COLOR: Deep space (dark sections) ---------- */
+  --c-void:        #06080f;   /* deepest bg, behind hero waves */
+  --c-night:       #0a0e1a;   /* main dark bg */
+  --c-night-2:     #0e1428;   /* slightly lifted bg, panels */
+  --c-night-3:     #1a2440;   /* hover bg, raised cards */
+  --c-wave-near:   #1e3a5f;   /* hero wave layer 1 */
+  --c-wave-far:    #2d5278;   /* hero wave layer 2 */
+
+  /* ---------- COLOR: Cream (light "discovery" sections) ---------- */
+  --c-cream:       #f5e6d3;   /* parchment replacement */
+  --c-cream-2:     #ebd9c0;
+  --c-cream-3:     #e0c9a8;
+
+  /* ---------- COLOR: Accents ---------- */
+  --c-signal:      #ff7a3d;   /* primary orange — beacon, headers */
+  --c-signal-soft: #ff9a4d;   /* lighter orange — hovers */
+  --c-signal-deep: #c45a25;   /* darker orange — text on cream */
+  --c-data:        #5eead4;   /* cyan data-glow — secondary accent */
+  --c-data-soft:   #9ff5e3;
+  --c-data-deep:   #2d9e8a;
+
+  /* ---------- COLOR: Text ---------- */
+  --c-text:        #e8e6e3;   /* main body on dark */
+  --c-text-mute:   #9aa5b8;   /* secondary text */
+  --c-text-dim:    #5d6577;   /* hints, captions */
+  --c-text-on-cream: #2a2520; /* text on cream sections */
+  --c-text-on-cream-mute: #6b5d4d;
+
+  /* ---------- COLOR: Borders ---------- */
+  --c-border:      rgba(255, 255, 255, 0.08);
+  --c-border-2:    rgba(255, 255, 255, 0.16);
+  --c-border-warm: rgba(255, 122, 61, 0.3);
+  --c-border-cool: rgba(94, 234, 212, 0.3);
+
+  /* ---------- TYPOGRAPHY ---------- */
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  /* ---------- TYPE SCALE ---------- */
+  --fs-eyebrow:   0.6875rem;   /* 11px — section labels */
+  --fs-mono:      0.8125rem;   /* 13px — nav, mono UI */
+  --fs-body:      1rem;        /* 16px */
+  --fs-lead:      1.125rem;    /* 18px — intro paragraphs */
+  --fs-h3:        1.5rem;      /* 24px */
+  --fs-h2:        2.5rem;      /* 40px */
+  --fs-h1:        4.5rem;      /* 72px — desktop hero */
+  --fs-h1-mobile: 3rem;        /* 48px */
+
+  /* ---------- LETTER SPACING ---------- */
+  --ls-mono-wide: 0.2em;       /* terminal-style spacing */
+  --ls-tight:     -0.02em;     /* display headlines */
+
+  /* ---------- SPACING ---------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-8: 3rem;
+  --sp-10: 4rem;
+  --sp-16: 6rem;
+  --sp-24: 9rem;
+
+  /* ---------- LAYOUT ---------- */
+  --content-max: 1200px;
+  --content-narrow: 880px;
+  --nav-h: 72px;
+
+  /* ---------- RADIUS ---------- */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+
+  /* ---------- MOTION ---------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 0.2s;
+  --dur-med: 0.45s;
+  --dur-slow: 0.8s;
+}

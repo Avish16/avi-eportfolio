@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0e1a" />
+  <title>Signal Lost — Avi Sharma</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/chatbot.css" />
+  <style>
+    .nf {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--sp-6);
+      background:
+        radial-gradient(ellipse at 50% 30%, #1a2440 0%, #0e1428 50%, #06080f 100%);
+    }
+    .nf__inner { max-width: 540px; }
+    .nf__code {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 18vw, 10rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--c-signal);
+      margin: 0;
+    }
+    .nf__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--c-cream);
+      margin: var(--sp-3) 0 var(--sp-4);
+    }
+    .nf__sub {
+      color: var(--c-text-mute);
+      font-size: var(--fs-lead);
+      margin: 0 0 var(--sp-6);
+    }
+    .nf__buttons {
+      display: flex;
+      gap: var(--sp-3);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="nf">
+      <div class="nf__inner">
+        <p class="eyebrow eyebrow--data" style="margin-bottom: var(--sp-3);">// CONNECTION LOST</p>
+        <h1 class="nf__code">404</h1>
+        <h2 class="nf__title">Signal Lost</h2>
+        <p class="nf__sub">This waypoint isn't on the map. Could be a broken link, or the artifact moved. Head back to the dossier and reorient.</p>
+        <div class="nf__buttons">
+          <a href="/" class="btn btn--primary">RETURN TO DOSSIER</a>
+          <a href="/projects.html" class="btn btn--ghost">OPEN ARCHIVE</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

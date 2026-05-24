@@ -1,0 +1,352 @@
+/* =========================================================
+   EXPEDITIONS — Quest map / star-chart with detail panels
+   ========================================================= */
+
+.exp-hero {
+  position: relative;
+  padding: calc(var(--nav-h) + var(--sp-10)) 0 var(--sp-8);
+  text-align: center;
+  border-bottom: 1px solid var(--c-border);
+  overflow: hidden;
+}
+.exp-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255, 122, 61, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.exp-hero__title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-top: var(--sp-3);
+  position: relative;
+}
+.exp-hero__sub {
+  color: var(--c-text-mute);
+  margin-top: var(--sp-4);
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* =========================================================
+   TIMELINE — the trajectory map itself
+   ========================================================= */
+.timeline {
+  position: relative;
+  padding: var(--sp-16) 0 var(--sp-24);
+}
+
+.timeline__inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+}
+
+/* The vertical curved path drawn behind nodes */
+.timeline__path {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+@media (max-width: 880px) {
+  .timeline__path {
+    left: 32px;
+    transform: none;
+    width: 4px;
+  }
+}
+
+/* The path itself draws in via dasharray when the timeline scrolls into view */
+.timeline__path-line {
+  stroke-dasharray: 8 6;
+  stroke-dashoffset: 0;
+  stroke: var(--c-border-2);
+  fill: none;
+  stroke-width: 1.5;
+  animation: pathFloat 8s ease-in-out infinite;
+}
+@keyframes pathFloat {
+  0%, 100% { stroke-dashoffset: 0; }
+  50% { stroke-dashoffset: -28; }
+}
+
+/* =========================================================
+   TIMELINE NODE ROW
+   Each work entry has: marker (left side) + panel (right side)
+   On odd rows we flip them so the path snakes side to side.
+   ========================================================= */
+.tl-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+  margin-bottom: var(--sp-16);
+  align-items: center;
+  z-index: 1;
+}
+.tl-row:last-child { margin-bottom: 0; }
+
+/* Default: marker LEFT, panel RIGHT */
+.tl-row__marker { justify-self: end; }
+.tl-row__panel { justify-self: start; }
+
+/* On even rows (2nd, 4th): marker RIGHT, panel LEFT */
+.tl-row:nth-child(even) .tl-row__marker {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+}
+.tl-row:nth-child(even) .tl-row__panel {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+}
+
+/* =========================================================
+   THE NODE MARKER (circle with label below)
+   ========================================================= */
+.tl-marker {
+  position: relative;
+  width: 220px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tl-marker__lvl {
+  position: absolute;
+  top: -14px;
+  background: var(--c-night-3);
+  border: 1px solid var(--c-border-warm);
+  color: var(--c-signal);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  padding: 2px 10px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.tl-marker__circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--c-night-2);
+  border: 1.5px solid var(--c-border-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--c-signal);
+  position: relative;
+  transition: all var(--dur-med) var(--ease-out);
+  z-index: 1;
+}
+.tl-marker__circle::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 122, 61, 0.25) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-out);
+}
+.tl-marker:hover .tl-marker__circle,
+.tl-row.is-active .tl-marker__circle {
+  border-color: var(--c-signal);
+  transform: scale(1.05);
+}
+.tl-marker:hover .tl-marker__circle::before,
+.tl-row.is-active .tl-marker__circle::before {
+  opacity: 1;
+}
+
+.tl-marker__label {
+  margin-top: var(--sp-3);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--c-text);
+}
+.tl-marker__date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--c-text-dim);
+  margin-top: 2px;
+  letter-spacing: 0.05em;
+}
+.tl-marker__youarehere {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  color: var(--c-data);
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   THE DETAIL PANEL (description card on opposite side)
+   ========================================================= */
+.tl-panel {
+  background: var(--c-night-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5) var(--sp-6);
+  max-width: 460px;
+  position: relative;
+  transition: all var(--dur-med) var(--ease-out);
+}
+.tl-panel:hover,
+.tl-row.is-active .tl-panel {
+  border-color: var(--c-border-warm);
+  background: var(--c-night-3);
+}
+
+.tl-panel__company-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-2);
+}
+.tl-panel__company {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--c-text-mute);
+  text-transform: uppercase;
+}
+.tl-panel__chip {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--c-signal);
+  color: var(--c-night);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+.tl-panel__chip--data { background: var(--c-data); }
+.tl-panel__chip--cream { background: var(--c-cream); }
+.tl-panel__lvl-mini {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.15em;
+  color: var(--c-text-dim);
+  text-transform: uppercase;
+}
+
+.tl-panel__role {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--c-text);
+  margin: 0 0 var(--sp-1);
+}
+.tl-panel__dates {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--c-text-dim);
+  margin-bottom: var(--sp-3);
+  letter-spacing: 0.05em;
+}
+.tl-panel__desc {
+  color: var(--c-text-mute);
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  margin: 0 0 var(--sp-4);
+}
+.tl-panel__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* =========================================================
+   MOBILE — single column, marker stacked above panel
+   ========================================================= */
+@media (max-width: 880px) {
+  .timeline__inner { padding: 0 var(--sp-4); }
+
+  .tl-row,
+  .tl-row:nth-child(even) {
+    grid-template-columns: 64px 1fr;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-10);
+    align-items: start;
+  }
+
+  .tl-row__marker,
+  .tl-row:nth-child(even) .tl-row__marker {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    width: auto;
+  }
+  .tl-row__panel,
+  .tl-row:nth-child(even) .tl-row__panel {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: stretch;
+    max-width: none;
+  }
+
+  .tl-marker { width: 64px; }
+  .tl-marker__circle { width: 56px; height: 56px; font-size: 1.25rem; }
+  .tl-marker__lvl { font-size: 0.5625rem; padding: 2px 6px; top: -10px; }
+  .tl-marker__label,
+  .tl-marker__date,
+  .tl-marker__youarehere { display: none; }
+
+  .tl-panel { padding: var(--sp-4) var(--sp-4); }
+}
+
+/* =========================================================
+   "WHAT'S NEXT?" END NODE
+   ========================================================= */
+.tl-end {
+  text-align: center;
+  margin-top: var(--sp-10);
+  padding: var(--sp-6);
+}
+.tl-end__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--c-border-warm);
+  margin: 0 auto var(--sp-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-signal);
+  font-size: 1.5rem;
+  animation: dashSpin 12s linear infinite;
+}
+@keyframes dashSpin {
+  to { transform: rotate(360deg); }
+}
+.tl-end__label {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: 0.15em;
+  color: var(--c-text-mute);
+  text-transform: uppercase;
+}

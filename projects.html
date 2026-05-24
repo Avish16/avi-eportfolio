@@ -1,61 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="utf-8" />
- <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Projects · Avi Sharma</title>
- <link rel="preconnect" href="https://fonts.googleapis.com" />
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
- <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
- <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Avi Sharma — Project archive. Deep-dives across computer vision, NLP, time-series, and geospatial." />
+  <meta name="theme-color" content="#0a0e1a" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Archive — Avi Sharma" />
+  <meta property="og:description" content="Five charted missions across computer vision, generative AI, time-series, and geospatial analytics." />
+  <meta property="og:image" content="assets/avi-1.jpeg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Archive — Avi Sharma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/projects.css" />
+  <link rel="stylesheet" href="css/chatbot.css" />
 </head>
 <body>
- <header class="site-header">
- <a class="brand" href="index.html">Avi<span>.</span></a>
- <button type="button" class="mobile-toggle" aria-expanded="false" aria-controls="nav-main">Menu</button>
- <nav id="nav-main" aria-label="Primary">
- <ul class="nav-links">
- <li><a href="index.html">Home</a></li>
- <li><a href="overview.html">Overview</a></li>
- <li><a href="projects.html" aria-current="page">Projects</a></li>
- <li><a href="video.html">Video</a></li>
- <li><a href="blog.html">Blog</a></li>
- <li><a href="https://github.com/Avish16" target="_blank" rel="noopener">GitHub</a></li>
- </ul>
- </nav>
- </header>
 
- <main class="section prose" style="max-width: var(--max); margin: 0 auto; padding-top: 2rem;">
- <h1 class="section-title" style="margin-bottom: 0.5rem;">Project descriptions</h1>
- <h2 id="mediexplain">MediExplain: human-centered medical AI</h2>
- <p><strong>Stack:</strong> LLMs, RAG, ChromaDB, Streamlit · <a href="https://github.com/Avish16/mediexplain" target="_blank" rel="noopener">GitHub repository</a></p>
- <p>MediExplain addresses a real communication gap in healthcare. Patients and caregivers often receive technical medical documents that are difficult to interpret. I built a modular system that generates clear, audience-specific explanations while preserving clinical context.</p>
- <p>The project uses <strong>retrieval-augmented generation</strong> with ChromaDB to ground responses in a curated medical corpus. The architecture includes multiple specialized LLM components for routing, explanation, and validation. I added reliability controls such as JSON schema validation, retry logic, and consistency checks, then exposed the workflow through Streamlit for transparent user interaction.</p>
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">A.S<span class="nav__brand-slash">/</span>26</a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">DOSSIER</a></li>
+        <li><a href="experience.html" class="nav__link">EXPEDITIONS</a></li>
+        <li><a href="projects.html" class="nav__link nav__link--active">ARCHIVE</a></li>
+        <li><a href="connect.html" class="nav__link">SIGNAL</a></li>
+      </ul>
+      <button class="nav__menu-btn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
 
- <h2 id="drowsiness">Driver drowsiness detection (deep learning)</h2>
- <p><strong>Stack:</strong> Python, CNN, OpenCV, LSTM · <a href="https://github.com/Avish16/Deep_Learning-Drowsiness_Detection" target="_blank" rel="noopener">GitHub repository</a></p>
- <p>This project frames drowsiness detection as an eye-state classification problem using infrared-style eye images and driving video. Based on the repository pipeline, the main training workflow uses grayscale 64x64 inputs and deep learning models in TensorFlow/Keras, with data augmentation and held-out evaluation.</p>
- <p>The model reaches strong benchmark performance on the curated test split, with approximately 98 percent test accuracy reported in the project results. For deployment, I built an inference pipeline using facial landmarks, left-right eye probability fusion, and time-window aggregation so the system can separate sustained eye closure from normal blinking. OpenCV overlays support both live webcam and offline monitoring.</p>
+  <div class="nav__drawer" id="navDrawer">
+    <a href="index.html" class="nav__drawer-link">Dossier<span class="nav__drawer-mono">/01</span></a>
+    <a href="experience.html" class="nav__drawer-link">Expeditions<span class="nav__drawer-mono">/02</span></a>
+    <a href="projects.html" class="nav__drawer-link nav__drawer-link--active">Archive<span class="nav__drawer-mono">/03</span></a>
+    <a href="connect.html" class="nav__drawer-link">Signal<span class="nav__drawer-mono">/04</span></a>
+  </div>
 
- <h2 id="datathon">DataThon: Syracuse code violations and spatial grid analytics</h2>
- <p><strong>Stack:</strong> Python, GeoPandas, Folium, scikit-learn · <a href="https://github.com/Avish16/DataThon26" target="_blank" rel="noopener">GitHub repository</a> · <a href="https://snipofist.github.io/DataThon26/" target="_blank" rel="noopener">Live map dashboard</a></p>
- <p>In this team datathon project, we linked <strong>city code violations</strong> with the <strong>property assessment roll</strong> and built a grid-based geospatial workflow for Syracuse. The goal was to identify where risk and vacancy patterns are concentrated and present findings in a way that city stakeholders can explore.</p>
- <p>Using the public repository materials, the workflow combines parcel-level joins, feature engineering, and map outputs in Folium. The project includes interactive outputs such as risk maps and prediction dashboards, with emphasis on reproducible processing and practical interpretation instead of opaque scoring.</p>
+  <main>
 
- <h2 id="bitcoin">Bitcoin flash crash prediction</h2>
- <p><strong>Stack:</strong> Jupyter, Python · <a href="https://github.com/Avish16/Bitcoin-FlashCrash-Prediction" target="_blank" rel="noopener">GitHub repository</a></p>
- <p>This project predicts binary <strong>flash crash</strong> events in minute-level Bitcoin data by combining market features with time-aligned Reddit sentiment. The modeling notebook builds 60-minute sequences, applies feature scaling, and trains a PyTorch sequence model with validation and early stopping.</p>
- <p>Evaluation in the repository reports about 0.71 test accuracy at tuned threshold settings, along with class-wise precision, recall, and confusion matrix analysis. The project demonstrates practical event modeling under class imbalance and highlights how social sentiment can be integrated with high-frequency market features for risk monitoring.</p>
+    <!-- ======================================================
+         HERO BAND
+         ====================================================== -->
+    <section class="arc-hero">
+      <div class="container">
+        <p class="eyebrow eyebrow--data">ARCHIVE</p>
+        <h1 class="h1 arc-hero__title">Recovered Artifacts</h1>
+        <p class="arc-hero__sub">Five charted missions across computer vision, generative AI, time-series, and geospatial analytics. Each one shipped, each one taught me something new.</p>
+      </div>
+    </section>
 
- <h2>Other work (resume highlights)</h2>
- <p><strong>Northwind data warehouse and BI:</strong> End-to-end Snowflake warehouse design, SQL ETL development, and Power BI dashboards for revenue, delivery, and inventory KPIs (<a href="https://github.com/Avish16/Northwind" target="_blank" rel="noopener">GitHub</a>). <strong>Forecasting energy consumption:</strong> Large-scale time series analysis over 50M+ records, ARIMA and XGBoost forecasting, and an R Shiny dashboard for scenario-based planning.</p>
 
- <p style="margin-top: 2rem;"><a href="overview.html">← Back to overview</a> · <a href="index.html">Home</a></p>
- </main>
+    <!-- ======================================================
+         ARCHIVE LIST
+         ====================================================== -->
+    <section class="archive">
+      <div class="container container--narrow">
+        <div class="archive__list">
 
- <footer class="site-footer">
- <p>Avi Sharma · <a href="mailto:asharm78@syr.edu">asharm78@syr.edu</a></p>
- </footer>
- <script src="js/main.js"></script>
+
+          <!-- ============== ENTRY 01 — MEDIEXPLAIN ============== -->
+          <article class="entry fade-in" id="mediexplain">
+            <div class="entry__topbar">
+              <div class="entry__topbar-left">
+                <span class="lvl-badge">LV. 04</span>
+                <span class="entry__category">// AGENTIC AI · LLM</span>
+              </div>
+              <span class="entry__index">ARTIFACT 01 / 05</span>
+            </div>
+
+            <h2 class="entry__title">
+              MediExplain<span class="entry__title-accent">.</span>
+            </h2>
+            <p class="entry__tagline">
+              Human-centered medical AI that explains complex documents to patients and caregivers — grounded in evidence, never hallucinated.
+            </p>
+
+            <div class="entry__stats">
+              <div class="entry__stat">
+                <div class="entry__stat-label">AGENTS</div>
+                <div class="entry__stat-value entry__stat-value--signal">18+</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">VECTOR STORE</div>
+                <div class="entry__stat-value">ChromaDB</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">RELIABILITY</div>
+                <div class="entry__stat-value entry__stat-value--data">JSON · Retry · Eval</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">UI</div>
+                <div class="entry__stat-value">Streamlit</div>
+              </div>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__section">
+                <div class="entry__section-label">Challenge</div>
+                <p class="entry__section-text">Medical documents are dense, jargon-heavy, and easy to misinterpret. Off-the-shelf LLMs hallucinate facts and lose nuance — dangerous when the reader is a patient or caregiver.</p>
+              </div>
+              <div class="entry__section">
+                <div class="entry__section-label">Approach</div>
+                <p class="entry__section-text">Designed an 18-component multi-agent system with routing, validation, and specialized explanation bots. Used a ChromaDB vector store over a curated medical corpus for evidence-grounded RAG. Layered JSON schema validation, retry logic, and consistency checks to harden outputs.</p>
+              </div>
+              <div class="entry__section entry__section--data">
+                <div class="entry__section-label">Outcome</div>
+                <p class="entry__section-text">Production-facing Streamlit app with privacy-safe data handling and adaptive response flows for patient vs. caregiver context. Defined evaluation metrics to monitor stability across varied and adversarial inputs.</p>
+              </div>
+            </div>
+
+            <div class="entry__footer">
+              <div class="entry__tech">
+                <span class="pill pill--data">LLMs</span>
+                <span class="pill pill--data">RAG</span>
+                <span class="pill">ChromaDB</span>
+                <span class="pill">Streamlit</span>
+                <span class="pill">Multi-Agent</span>
+                <span class="pill">Python</span>
+              </div>
+              <div class="entry__actions">
+                <a href="https://github.com/Avish16/mediexplain" target="_blank" rel="noopener" class="btn btn--primary">
+                  VIEW ON GITHUB
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ============== ENTRY 02 — DRIVER DROWSINESS ============== -->
+          <article class="entry fade-in" id="drowsiness">
+            <div class="entry__topbar">
+              <div class="entry__topbar-left">
+                <span class="lvl-badge">LV. 03</span>
+                <span class="entry__category">// COMPUTER VISION · DEEP LEARNING</span>
+              </div>
+              <span class="entry__index">ARTIFACT 02 / 05</span>
+            </div>
+
+            <h2 class="entry__title">
+              Driver Drowsiness Detection<span class="entry__title-accent">.</span>
+            </h2>
+            <p class="entry__tagline">
+              Real-time eye-state classification from video, with temporal logic that distinguishes sustained drowsiness from natural blinking.
+            </p>
+
+            <div class="entry__stats">
+              <div class="entry__stat">
+                <div class="entry__stat-label">DATASET</div>
+                <div class="entry__stat-value entry__stat-value--signal">85K+ images</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">TEST ACCURACY</div>
+                <div class="entry__stat-value entry__stat-value--data">~98%</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">ROC–AUC</div>
+                <div class="entry__stat-value">Near-perfect</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">DEPLOYMENT</div>
+                <div class="entry__stat-value">Live + Offline</div>
+              </div>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__section">
+                <div class="entry__section-label">Challenge</div>
+                <p class="entry__section-text">Drowsy driving kills. A reliable detector has to fire on sustained eye closure but not on routine blinks — and it has to run in real time on a webcam stream without false alarms or lag.</p>
+              </div>
+              <div class="entry__section">
+                <div class="entry__section-label">Approach</div>
+                <p class="entry__section-text">Trained and evaluated multiple architectures on 85K+ labeled eye images. Selected an augmented CNN with the strongest test profile, and built an end-to-end inference pipeline using facial landmarks, left/right probability fusion, and time-based aggregation.</p>
+              </div>
+              <div class="entry__section entry__section--data">
+                <div class="entry__section-label">Outcome</div>
+                <p class="entry__section-text">Deployed with OpenCV for both live webcam and offline video monitoring. Frame-skipping optimizations and threshold tuning balance reliability, false alarms, and real-time performance.</p>
+              </div>
+            </div>
+
+            <div class="entry__footer">
+              <div class="entry__tech">
+                <span class="pill pill--data">CNN</span>
+                <span class="pill">OpenCV</span>
+                <span class="pill">Python</span>
+                <span class="pill">LSTM</span>
+                <span class="pill">PyTorch</span>
+              </div>
+              <div class="entry__actions">
+                <a href="https://github.com/Avish16/Deep_Learning-Drowsiness_Detection" target="_blank" rel="noopener" class="btn btn--primary">
+                  VIEW ON GITHUB
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ============== ENTRY 03 — DATATHON 26 ============== -->
+          <article class="entry fade-in" id="datathon">
+            <div class="entry__topbar">
+              <div class="entry__topbar-left">
+                <span class="lvl-badge">LV. 03</span>
+                <span class="entry__category">// GEOSPATIAL · CIVIC ANALYTICS</span>
+              </div>
+              <span class="entry__index">ARTIFACT 03 / 05</span>
+            </div>
+
+            <h2 class="entry__title">
+              DataThon 26 — Syracuse Spatial Analytics<span class="entry__title-accent">.</span>
+            </h2>
+            <p class="entry__tagline">
+              City-scale property risk and vacancy modeling that fuses code violations with parcel assessments to surface where real risk concentrates.
+            </p>
+
+            <div class="entry__stats">
+              <div class="entry__stat">
+                <div class="entry__stat-label">VIOLATION RECORDS</div>
+                <div class="entry__stat-value entry__stat-value--signal">140K+</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">PARCELS</div>
+                <div class="entry__stat-value">41K+</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">MODEL</div>
+                <div class="entry__stat-value">Random Forest</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">DELIVERABLE</div>
+                <div class="entry__stat-value entry__stat-value--data">Folium maps</div>
+              </div>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__section">
+                <div class="entry__section-label">Challenge</div>
+                <p class="entry__section-text">Two messy city datasets — code violations and assessment records — that don't share clean keys. Stakeholders needed parcel-level risk signals plus a public-facing artifact non-experts could actually use.</p>
+              </div>
+              <div class="entry__section">
+                <div class="entry__section-label">Approach</div>
+                <p class="entry__section-text">Merged 140K+ violation records with 41K+ assessment parcels on normalized SBL keys. Built a scikit-learn regression pipeline (ColumnTransformer + OneHotEncoder) to expose feature-level drivers of property value and risk.</p>
+              </div>
+              <div class="entry__section entry__section--data">
+                <div class="entry__section-label">Outcome</div>
+                <p class="entry__section-text">Track B grid-level model layered crime, violation, and vacancy signals. Trained a Random Forest and shipped interactive Folium risk and vacancy-probability maps via GitHub Pages for public stakeholders.</p>
+              </div>
+            </div>
+
+            <div class="entry__footer">
+              <div class="entry__tech">
+                <span class="pill">Python</span>
+                <span class="pill">SQL</span>
+                <span class="pill">GeoPandas</span>
+                <span class="pill">Folium</span>
+                <span class="pill pill--data">Scikit-learn</span>
+                <span class="pill">Random Forest</span>
+              </div>
+              <div class="entry__actions">
+                <a href="https://github.com/Avish16/DataThon26" target="_blank" rel="noopener" class="btn btn--primary">
+                  VIEW ON GITHUB
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ============== ENTRY 04 — BITCOIN FLASH CRASH ============== -->
+          <article class="entry fade-in" id="bitcoin">
+            <div class="entry__topbar">
+              <div class="entry__topbar-left">
+                <span class="lvl-badge">LV. 03</span>
+                <span class="entry__category">// TIME-SERIES · NLP</span>
+              </div>
+              <span class="entry__index">ARTIFACT 04 / 05</span>
+            </div>
+
+            <h2 class="entry__title">
+              Bitcoin Flash Crash Prediction<span class="entry__title-accent">.</span>
+            </h2>
+            <p class="entry__tagline">
+              A binary classifier for extreme downside Bitcoin minutes — built from minute-level market features fused with Reddit sentiment scored through VADER and FinBERT.
+            </p>
+
+            <div class="entry__stats">
+              <div class="entry__stat">
+                <div class="entry__stat-label">RESOLUTION</div>
+                <div class="entry__stat-value entry__stat-value--signal">Minute-level</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">SEQUENCE WINDOW</div>
+                <div class="entry__stat-value">60 minutes</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">TEST ACCURACY</div>
+                <div class="entry__stat-value entry__stat-value--data">~71%</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">TEST SAMPLES</div>
+                <div class="entry__stat-value">~56.8K</div>
+              </div>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__section">
+                <div class="entry__section-label">Challenge</div>
+                <p class="entry__section-text">Flash crash minutes are rare and devastating. Pure price-action models miss the early signals that often live in social chatter — but raw Reddit text is noisy, sparse per minute, and asymmetric. Detecting them is an imbalanced binary classification problem with real consequences for naive accuracy.</p>
+              </div>
+              <div class="entry__section">
+                <div class="entry__section-label">Approach</div>
+                <p class="entry__section-text">Engineered minute-level OHLCV features (rolling volatility, drawdowns, momentum, tier flags) and aligned them with per-subreddit VADER sentiment columns plus a parallel FinBERT pipeline. Trained a PyTorch sequence model over 60-minute sliding windows with StandardScaler, validation, and early stopping.</p>
+              </div>
+              <div class="entry__section entry__section--data">
+                <div class="entry__section-label">Outcome</div>
+                <p class="entry__section-text">Test accuracy ~0.71 at threshold 0.4 on ~56.8K sequenced samples, with class-1 F1 ≈ 0.74 — a credible baseline that fuses two very different signal types into a single risk score, with full classification reports and confusion matrices in the notebook.</p>
+              </div>
+            </div>
+
+            <div class="entry__footer">
+              <div class="entry__tech">
+                <span class="pill pill--data">PyTorch</span>
+                <span class="pill">Python</span>
+                <span class="pill">VADER</span>
+                <span class="pill">FinBERT</span>
+                <span class="pill">Hugging Face</span>
+                <span class="pill">Scikit-learn</span>
+              </div>
+              <div class="entry__actions">
+                <a href="https://github.com/Avish16/Bitcoin-FlashCrash-Prediction" target="_blank" rel="noopener" class="btn btn--primary">
+                  VIEW ON GITHUB
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- ============== ENTRY 05 — NORTHWIND (NO GITHUB) ============== -->
+          <article class="entry fade-in" id="northwind">
+            <div class="entry__topbar">
+              <div class="entry__topbar-left">
+                <span class="lvl-badge">LV. 02</span>
+                <span class="entry__category">// DATA ENGINEERING · BI</span>
+              </div>
+              <span class="entry__index">ARTIFACT 05 / 05</span>
+            </div>
+
+            <h2 class="entry__title">
+              Northwind Data Warehouse & BI<span class="entry__title-accent">.</span>
+            </h2>
+            <p class="entry__tagline">
+              End-to-end Snowflake warehouse with dimensional modeling and Power BI dashboards translating operational data into stakeholder decisions.
+            </p>
+
+            <div class="entry__stats">
+              <div class="entry__stat">
+                <div class="entry__stat-label">WAREHOUSE</div>
+                <div class="entry__stat-value entry__stat-value--signal">Snowflake</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">ARCHITECTURE</div>
+                <div class="entry__stat-value">STG → DW</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">PIPELINES</div>
+                <div class="entry__stat-value">SQL ETL</div>
+              </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">DASHBOARDS</div>
+                <div class="entry__stat-value entry__stat-value--data">Power BI</div>
+              </div>
+            </div>
+
+            <div class="entry__body">
+              <div class="entry__section">
+                <div class="entry__section-label">Challenge</div>
+                <p class="entry__section-text">Operational data scattered across normalized OLTP tables makes business questions slow to answer. Stakeholders needed a warehouse layer plus dashboards they could actually self-serve from.</p>
+              </div>
+              <div class="entry__section">
+                <div class="entry__section-label">Approach</div>
+                <p class="entry__section-text">Built an end-to-end data warehouse in Snowflake with dimensional modeling (STG → DW), and SQL ETL pipelines to clean, transform, and integrate large datasets for downstream analysis. Defined revenue, delivery, and inventory KPIs from scratch.</p>
+              </div>
+              <div class="entry__section entry__section--data">
+                <div class="entry__section-label">Outcome</div>
+                <p class="entry__section-text">Analyzed customer purchasing behavior, order patterns, and operational KPIs to surface trends, inefficiencies, and growth opportunities. Power BI dashboards translated complex data into actionable insights stakeholders could navigate themselves.</p>
+              </div>
+            </div>
+
+            <div class="entry__footer">
+              <div class="entry__tech">
+                <span class="pill">Snowflake</span>
+                <span class="pill">SQL</span>
+                <span class="pill">Power BI</span>
+                <span class="pill">ETL</span>
+                <span class="pill">Dimensional Modeling</span>
+              </div>
+              <div class="entry__actions">
+                <span class="entry__locked">
+                  <svg class="entry__locked-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  CASE STUDY · COURSEWORK
+                </span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ======================================================
+         END CTA
+         ====================================================== -->
+    <section class="endcta">
+      <div class="container container--narrow">
+        <p class="eyebrow eyebrow--signal">CONTINUE EXPEDITION</p>
+        <h2 class="h2 endcta__title" style="margin-top: 1rem;">Found something interesting?</h2>
+        <p class="endcta__sub">If any of these missions caught your attention, send a signal — I'm happy to walk through the details.</p>
+        <div class="endcta__buttons">
+          <a href="connect.html" class="btn btn--primary">SEND SIGNAL</a>
+          <a href="experience.html" class="btn btn--ghost">VIEW EXPEDITIONS</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__sig">A.S<span style="color: var(--c-data);">/</span>26 &nbsp;·&nbsp; SYRACUSE, NY</span>
+        <div class="footer__links">
+          <a href="https://github.com/Avish16" class="footer__link">GITHUB</a>
+          <a href="https://www.linkedin.com/in/avi-sharma-1716361b8" class="footer__link">LINKEDIN</a>
+          <a href="mailto:asharm78@syr.edu" class="footer__link">EMAIL</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
 </body>
 </html>

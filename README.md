@@ -1,19 +1,33 @@
-# Avi Sharma - ePortfolio
+# Avi Sharma — ePortfolio
 
-Static site (HTML/CSS) for the M.S. Applied Data Science portfolio: overview, projects, video placeholder, and reflection blog.
+Data-explorer / sci-fi adventure-themed portfolio. Vanilla HTML/CSS/JS + GSAP, designed to deploy on Vercel with a serverless Claude API endpoint for the chatbot.
 
 ## Local preview
 
-Open `index.html` in a browser, or from this folder:
+Just open `index.html` in a browser. For the chatbot to work locally later, run a static server:
 
 ```bash
-start index.html
+# from the eportfolio folder
+npx serve .
+# or
+python -m http.server 8000
 ```
 
-## GitHub Pages
+## Structure
 
-Repository **Settings → Pages**: deploy from branch `main`, folder `/ (root)`. Site URL:
+- `index.html` — Dossier (home + about merged)
+- `experience.html` — Expeditions (work history as quest map)
+- `projects.html` — Archive (project deep-dives)
+- `connect.html` — Signal (contact)
+- `css/tokens.css` — design tokens (colors, fonts, spacing)
+- `css/main.css` — shared styles
+- `js/main.js` — shared behavior
+- `api/chat.js` — Vercel serverless function for chatbot (added in Phase 9)
 
-`https://<your-username>.github.io/<repo-name>/`
+## Deploy
 
-Replace the video embed in `video.html` after you upload your recording.
+Deployed on Vercel from `main` branch. Custom domain optional.
+
+## Theme
+
+Data Explorer / Cosmic Cartographer. Dark deep-space palette + warm signal-orange accent + cyan data-glow secondary. Cream panels for "discovery" sections.

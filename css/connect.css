@@ -1,0 +1,277 @@
+/* =========================================================
+   SIGNAL — Connect page with cream "discovery" panel
+   ========================================================= */
+
+.signal-section {
+  position: relative;
+  padding: calc(var(--nav-h) + var(--sp-10)) 0 var(--sp-16);
+  background: var(--c-night);
+  overflow: hidden;
+}
+
+/* Floating cyan signal pulse circles in background */
+.signal-section__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.signal-section__bg::before,
+.signal-section__bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid var(--c-border-cool);
+  opacity: 0.15;
+}
+.signal-section__bg::before {
+  width: 600px;
+  height: 600px;
+  top: -100px;
+  left: -200px;
+  animation: signalPulse 8s ease-in-out infinite;
+}
+.signal-section__bg::after {
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  right: -150px;
+  animation: signalPulse 10s ease-in-out infinite reverse;
+}
+@keyframes signalPulse {
+  0%, 100% { transform: scale(0.95); opacity: 0.1; }
+  50% { transform: scale(1.05); opacity: 0.2; }
+}
+
+/* =========================================================
+   THE CREAM PANEL — the "discovery" surface
+   ========================================================= */
+.signal-panel {
+  position: relative;
+  background: var(--c-cream);
+  border-radius: var(--r-xl);
+  padding: var(--sp-16) var(--sp-8);
+  text-align: center;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Decorative wave pattern in the cream panel */
+.signal-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(196, 90, 37, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(45, 158, 138, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* Subtle topographic line pattern */
+.signal-panel__topo {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.signal-panel__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.signal-panel__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: var(--ls-mono-wide);
+  color: var(--c-text-on-cream-mute);
+  text-transform: uppercase;
+}
+
+.signal-panel__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--c-text-on-cream);
+  margin: var(--sp-3) 0 var(--sp-3);
+  line-height: 1;
+}
+
+.signal-panel__sub {
+  font-size: var(--fs-lead);
+  color: var(--c-text-on-cream-mute);
+  max-width: 56ch;
+  margin: 0 auto var(--sp-10);
+}
+
+/* =========================================================
+   ACTION CARDS GRID
+   ========================================================= */
+.signal-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-4);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (max-width: 880px) {
+  .signal-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .signal-cards { grid-template-columns: 1fr; }
+}
+
+.s-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(42, 37, 32, 0.08);
+  border-radius: var(--r-lg);
+  padding: var(--sp-5) var(--sp-4);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all var(--dur-med) var(--ease-out);
+  overflow: hidden;
+}
+.s-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--dur-med) var(--ease-out);
+  pointer-events: none;
+}
+.s-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(196, 90, 37, 0.35);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 12px 32px -16px rgba(42, 37, 32, 0.2);
+}
+.s-card:hover::before { opacity: 1; }
+
+.s-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(42, 37, 32, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-3);
+  position: relative;
+  z-index: 1;
+}
+.s-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.s-card__title {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--c-text-on-cream);
+  margin: 0 0 4px;
+  position: relative;
+  z-index: 1;
+}
+.s-card__sub {
+  font-size: 0.8125rem;
+  color: var(--c-text-on-cream-mute);
+  margin: 0 0 var(--sp-4);
+  line-height: 1.4;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+.s-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--c-signal-deep);
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+  transition: gap var(--dur-fast) var(--ease-out);
+}
+.s-card:hover .s-card__cta { gap: 8px; }
+
+/* CTA color variants */
+.s-card__cta--blue { color: #1d6dc4; }
+.s-card__cta--red { color: #b8423a; }
+.s-card__cta--purple { color: #6645b3; }
+.s-card__cta--teal { color: var(--c-data-deep); }
+
+/* Brand colors for icons (matching popular brand identities subtly) */
+.s-card__icon--linkedin { background: rgba(29, 109, 196, 0.1); border-color: rgba(29, 109, 196, 0.2); }
+.s-card__icon--linkedin svg { color: #1d6dc4; }
+.s-card__icon--mail { background: rgba(196, 90, 37, 0.1); border-color: rgba(196, 90, 37, 0.2); }
+.s-card__icon--mail svg { color: var(--c-signal-deep); }
+.s-card__icon--github { background: rgba(42, 37, 32, 0.08); border-color: rgba(42, 37, 32, 0.15); }
+.s-card__icon--github svg { color: var(--c-text-on-cream); }
+.s-card__icon--phone { background: rgba(45, 158, 138, 0.1); border-color: rgba(45, 158, 138, 0.2); }
+.s-card__icon--phone svg { color: var(--c-data-deep); }
+.s-card__icon--resume { background: rgba(102, 69, 179, 0.1); border-color: rgba(102, 69, 179, 0.2); }
+.s-card__icon--resume svg { color: #6645b3; }
+
+/* =========================================================
+   SECONDARY ROW — beacon icons under the panel
+   ========================================================= */
+.signal-secondary {
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-5);
+  margin-top: var(--sp-10);
+  position: relative;
+  z-index: 1;
+}
+.signal-secondary__beacon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--c-night-2);
+  border: 1px solid var(--c-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text-mute);
+  transition: all var(--dur-fast) var(--ease-out);
+}
+.signal-secondary__beacon:hover {
+  border-color: var(--c-signal);
+  color: var(--c-signal);
+  transform: translateY(-3px);
+}
+.signal-secondary__beacon svg { width: 18px; height: 18px; }
+
+/* Floating beacon between sections */
+.signal-floor-beacon {
+  display: flex;
+  justify-content: center;
+  margin: var(--sp-10) 0 0;
+  position: relative;
+  z-index: 1;
+}
+.signal-floor-beacon__flame {
+  width: 28px;
+  height: 36px;
+  position: relative;
+}
+.signal-floor-beacon__glow {
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 154, 77, 0.25) 0%, transparent 70%);
+  animation: beaconPulse 3s ease-in-out infinite;
+}

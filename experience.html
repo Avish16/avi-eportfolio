@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Avi Sharma — Field log of expeditions across data science roles and research." />
+  <meta name="theme-color" content="#0a0e1a" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Expeditions — Avi Sharma" />
+  <meta property="og:description" content="Field log of charted territories — internships, research, and the academic expeditions in between." />
+  <meta property="og:image" content="assets/avi-1.jpeg" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <title>Expeditions — Avi Sharma</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/experience.css" />
+  <link rel="stylesheet" href="css/chatbot.css" />
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__brand">A.S<span class="nav__brand-slash">/</span>26</a>
+      <ul class="nav__links">
+        <li><a href="index.html" class="nav__link">DOSSIER</a></li>
+        <li><a href="experience.html" class="nav__link nav__link--active">EXPEDITIONS</a></li>
+        <li><a href="projects.html" class="nav__link">ARCHIVE</a></li>
+        <li><a href="connect.html" class="nav__link">SIGNAL</a></li>
+      </ul>
+      <button class="nav__menu-btn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+
+  <div class="nav__drawer" id="navDrawer">
+    <a href="index.html" class="nav__drawer-link">Dossier<span class="nav__drawer-mono">/01</span></a>
+    <a href="experience.html" class="nav__drawer-link nav__drawer-link--active">Expeditions<span class="nav__drawer-mono">/02</span></a>
+    <a href="projects.html" class="nav__drawer-link">Archive<span class="nav__drawer-mono">/03</span></a>
+    <a href="connect.html" class="nav__drawer-link">Signal<span class="nav__drawer-mono">/04</span></a>
+  </div>
+
+  <main>
+
+    <!-- ======================================================
+         HERO BAND
+         ====================================================== -->
+    <section class="exp-hero">
+      <div class="container">
+        <p class="eyebrow eyebrow--signal">EXPEDITIONS</p>
+        <h1 class="h1 exp-hero__title">Field Log</h1>
+        <p class="exp-hero__sub">A trace of charted territories — internships, research, and the academic expeditions in between. Each waypoint is a place where I shipped something real.</p>
+      </div>
+    </section>
+
+
+    <!-- ======================================================
+         TIMELINE
+         ====================================================== -->
+    <section class="timeline">
+      <div class="timeline__inner">
+
+        <!-- The snaking dotted path behind the nodes -->
+        <svg class="timeline__path" viewBox="0 0 800 1600" preserveAspectRatio="none" aria-hidden="true">
+          <path class="timeline__path-line"
+            d="M 600 60
+               C 600 200, 200 240, 200 380
+               C 200 520, 600 560, 600 700
+               C 600 840, 200 880, 200 1020
+               C 200 1160, 600 1200, 600 1340
+               L 600 1500" />
+        </svg>
+
+        <!-- ROW 1 — MoMacMo (current) -->
+        <div class="tl-row is-active" data-row="1">
+          <div class="tl-row__marker">
+            <div class="tl-marker">
+              <span class="tl-marker__lvl">LV. 04</span>
+              <div class="tl-marker__circle">M</div>
+              <div class="tl-marker__label">MoMacMo</div>
+              <div class="tl-marker__date">Sep 2025 — Present</div>
+              <div class="tl-marker__youarehere">You are here</div>
+            </div>
+          </div>
+          <div class="tl-row__panel">
+            <article class="tl-panel">
+              <div class="tl-panel__company-row">
+                <div class="tl-panel__company">
+                  <span class="tl-panel__chip">M</span>
+                  <span>MoMacMo</span>
+                </div>
+                <span class="tl-panel__lvl-mini">LV. 04</span>
+              </div>
+              <h3 class="tl-panel__role">Data Science Intern</h3>
+              <p class="tl-panel__dates">Sep 2025 — Present</p>
+              <p class="tl-panel__desc">
+                Built cloud pipelines on AWS to ingest and analyze 3.6+ TB of high-frequency sensor data end-to-end, from scratch with no existing infrastructure. Designed inference workflows using VGG16 transfer learning and XGBoost for event detection and classification, achieving over 90% accuracy matching expert benchmarks.
+              </p>
+              <div class="tl-panel__tech">
+                <span class="pill pill--data">AWS</span>
+                <span class="pill pill--data">Python</span>
+                <span class="pill">XGBoost</span>
+                <span class="pill">VGG16</span>
+                <span class="pill">S3</span>
+                <span class="pill">EC2</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ROW 2 — Healthcare AI -->
+        <div class="tl-row" data-row="2">
+          <div class="tl-row__marker">
+            <div class="tl-marker">
+              <span class="tl-marker__lvl">LV. 03</span>
+              <div class="tl-marker__circle" style="color: var(--c-data); border-color: var(--c-border-cool);">H</div>
+              <div class="tl-marker__label">Healthcare AI</div>
+              <div class="tl-marker__date">Jan 2025 — Present</div>
+            </div>
+          </div>
+          <div class="tl-row__panel">
+            <article class="tl-panel">
+              <div class="tl-panel__company-row">
+                <div class="tl-panel__company">
+                  <span class="tl-panel__chip tl-panel__chip--data">H</span>
+                  <span>Syracuse University</span>
+                </div>
+                <span class="tl-panel__lvl-mini">LV. 03</span>
+              </div>
+              <h3 class="tl-panel__role">AI Researcher · Healthcare AI</h3>
+              <p class="tl-panel__dates">Jan 2025 — Present</p>
+              <p class="tl-panel__desc">
+                Developed deep learning models for medical image classification using CNN architectures and transfer learning. Built reproducible training and evaluation pipelines with performance tracking, validation metrics, and A/B-style comparisons across model variants. Contributed to a project awarded Best Project — Fall 2025.
+              </p>
+              <div class="tl-panel__tech">
+                <span class="pill pill--data">CNN</span>
+                <span class="pill pill--data">PyTorch</span>
+                <span class="pill">Transfer Learning</span>
+                <span class="pill">Medical Imaging</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ROW 3 — Syracuse MS -->
+        <div class="tl-row" data-row="3">
+          <div class="tl-row__marker">
+            <div class="tl-marker">
+              <span class="tl-marker__lvl">LV. 02</span>
+              <div class="tl-marker__circle" style="color: var(--c-cream); border-color: rgba(245, 230, 211, 0.4);">S</div>
+              <div class="tl-marker__label">Syracuse MS</div>
+              <div class="tl-marker__date">Aug 2024 — May 2026</div>
+            </div>
+          </div>
+          <div class="tl-row__panel">
+            <article class="tl-panel">
+              <div class="tl-panel__company-row">
+                <div class="tl-panel__company">
+                  <span class="tl-panel__chip tl-panel__chip--cream">S</span>
+                  <span>Syracuse University</span>
+                </div>
+                <span class="tl-panel__lvl-mini">LV. 02</span>
+              </div>
+              <h3 class="tl-panel__role">M.S. in Applied Data Science</h3>
+              <p class="tl-panel__dates">Aug 2024 — May 2026</p>
+              <p class="tl-panel__desc">
+                Two-year graduate program covering applied machine learning, NLP, deep learning, business analytics, advanced database management, and human-centered AI. Built MediExplain, Driver Drowsiness Detection, the Northwind warehouse, and contributed to DataThon 26 along the way.
+              </p>
+              <div class="tl-panel__tech">
+                <span class="pill">Applied ML</span>
+                <span class="pill">NLP</span>
+                <span class="pill">Deep Learning</span>
+                <span class="pill">HCI</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ROW 4 — NMIMS -->
+        <div class="tl-row" data-row="4">
+          <div class="tl-row__marker">
+            <div class="tl-marker">
+              <span class="tl-marker__lvl">LV. 01</span>
+              <div class="tl-marker__circle" style="color: var(--c-text-mute); border-color: var(--c-border-2);">N</div>
+              <div class="tl-marker__label">NMIMS</div>
+              <div class="tl-marker__date">Jul 2020 — May 2024</div>
+            </div>
+          </div>
+          <div class="tl-row__panel">
+            <article class="tl-panel">
+              <div class="tl-panel__company-row">
+                <div class="tl-panel__company">
+                  <span class="tl-panel__chip" style="background: var(--c-text-mute);">N</span>
+                  <span>NMIMS</span>
+                </div>
+                <span class="tl-panel__lvl-mini">LV. 01</span>
+              </div>
+              <h3 class="tl-panel__role">B.Tech, Computer Science</h3>
+              <p class="tl-panel__dates">Jul 2020 — May 2024</p>
+              <p class="tl-panel__desc">
+                Four-year undergraduate program at Narsee Monjee Institute of Management Studies, covering data structures and algorithms, probability and statistics, machine learning, data mining, and database management — the foundation everything else is built on.
+              </p>
+              <div class="tl-panel__tech">
+                <span class="pill">Data Structures</span>
+                <span class="pill">Algorithms</span>
+                <span class="pill">Statistics</span>
+                <span class="pill">Databases</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- WHAT'S NEXT END NODE -->
+        <div class="tl-end">
+          <div class="tl-end__icon">+</div>
+          <p class="tl-end__label">What's next?</p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- End CTA -->
+    <section class="endcta">
+      <div class="container container--narrow">
+        <p class="eyebrow eyebrow--data">CONTINUE EXPEDITION</p>
+        <h2 class="h2 endcta__title" style="margin-top: 1rem;">See what I've built.</h2>
+        <p class="endcta__sub">Open the archive for project deep-dives, or send a signal directly.</p>
+        <div class="endcta__buttons">
+          <a href="projects.html" class="btn btn--primary">OPEN ARCHIVE</a>
+          <a href="connect.html" class="btn btn--ghost">SEND SIGNAL</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span class="footer__sig">A.S<span style="color: var(--c-data);">/</span>26 &nbsp;·&nbsp; SYRACUSE, NY</span>
+        <div class="footer__links">
+          <a href="https://github.com/Avish16" class="footer__link">GITHUB</a>
+          <a href="https://www.linkedin.com/in/avi-sharma-1716361b8" class="footer__link">LINKEDIN</a>
+          <a href="mailto:asharm78@syr.edu" class="footer__link">EMAIL</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
