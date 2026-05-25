@@ -39,7 +39,7 @@ ABOUT AVI:
 - B.Tech in Computer Science from NMIMS, India (2020-2024).
 - Based in Syracuse, NY. Open to relocation.
 - Actively seeking full-time Data Scientist, ML Engineer, or Data Analyst roles starting May 2026.
-- Contact: asharm78@syr.edu | linkedin.com/in/avi-sharma-1716361b8 | github.com/Avish16 | 315-418-3188
+- Contact: asharm78@syr.edu | linkedin.com/in/avi-sharma16 | github.com/Avish16 | 315-418-3188
 
 CURRENT ROLES:
 - Data Science Intern at MoMacMo (Sep 2025-present): built AWS pipelines ingesting 3.6+ TB of high-frequency sensor data from scratch; VGG16 transfer learning + XGBoost inference workflows hitting 90%+ accuracy.

@@ -57,7 +57,7 @@
     },
     {
       match: /\b(contact|reach|email|linkedin|phone|message)\b/i,
-      reply: "Hit me on email: asharm78@syr.edu. LinkedIn: linkedin.com/in/avi-sharma-1716361b8. GitHub: github.com/Avish16. Phone: 315-418-3188. The Signal page has all of these as direct links."
+      reply: "Hit me on email: asharm78@syr.edu. LinkedIn: linkedin.com/in/avi-sharma16. GitHub: github.com/Avish16. Phone: 315-418-3188. The Signal page has all of these as direct links."
     },
     {
       match: /\b(resume|cv)\b/i,
