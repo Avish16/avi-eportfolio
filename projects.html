@@ -86,7 +86,7 @@
             <div class="entry__stats">
               <div class="entry__stat">
                 <div class="entry__stat-label">AGENTS</div>
-                <div class="entry__stat-value entry__stat-value--signal">18+</div>
+                <div class="entry__stat-value entry__stat-value--signal">19</div>
               </div>
               <div class="entry__stat">
                 <div class="entry__stat-label">VECTOR STORE</div>
@@ -100,20 +100,24 @@
                 <div class="entry__stat-label">UI</div>
                 <div class="entry__stat-value">Streamlit</div>
               </div>
+              <div class="entry__stat">
+                <div class="entry__stat-label">DEPLOYED</div>
+                <div class="entry__stat-value entry__stat-value--data">Streamlit Cloud</div>
+              </div>
             </div>
 
             <div class="entry__body">
               <div class="entry__section">
                 <div class="entry__section-label">Challenge</div>
-                <p class="entry__section-text">Medical documents are dense, jargon-heavy, and easy to misinterpret. Off-the-shelf LLMs hallucinate facts and lose nuance — dangerous when the reader is a patient or caregiver.</p>
+                <p class="entry__section-text">Medical documents are dense, jargon-heavy, and easy to misinterpret. Patients and caregivers struggle to act on clinical language — lab values, diagnoses, discharge instructions. Off-the-shelf LLMs hallucinate facts and lose nuance, which is dangerous when the reader is making health decisions.</p>
               </div>
               <div class="entry__section">
                 <div class="entry__section-label">Approach</div>
-                <p class="entry__section-text">Designed an 18-component multi-agent system with routing, validation, and specialized explanation bots. Used a ChromaDB vector store over a curated medical corpus for evidence-grounded RAG. Layered JSON schema validation, retry logic, and consistency checks to harden outputs.</p>
+                <p class="entry__section-text">Designed a 19-bot modular pipeline where each bot is a specialized AI agent — Demographics, Diagnosis, Labs, Vitals, Clinical Notes, Nursing, Medications, Prescriptions, Procedures, Pathology, Billing, Safety Labels, and Consistency Checker. Built a ChromaDB vector store over medical literature for RAG-grounded answers. Standardized OpenAI client pattern across all bots with lazy singleton initialization, graceful secret loading, and cross-platform font handling.</p>
               </div>
               <div class="entry__section entry__section--data">
                 <div class="entry__section-label">Outcome</div>
-                <p class="entry__section-text">Production-facing Streamlit app with privacy-safe data handling and adaptive response flows for patient vs. caregiver context. Defined evaluation metrics to monitor stability across varied and adversarial inputs.</p>
+                <p class="entry__section-text">Fully deployed at mediexplain.streamlit.app — generates a 30+ page synthetic clinical PDF end-to-end including ICD-10 codes, CPT codes, HCC risk scores, drug interaction warnings, and a cross-section consistency report. Production-hardened with retry logic, JSON recovery, and graceful degradation across all pipeline stages.</p>
               </div>
             </div>
 
@@ -125,12 +129,15 @@
                 <span class="pill">Streamlit</span>
                 <span class="pill">Multi-Agent</span>
                 <span class="pill">Python</span>
+                <span class="pill">ReportLab</span>
+                <span class="pill">OpenAI</span>
               </div>
               <div class="entry__actions">
                 <a href="https://github.com/Avish16/mediexplain" target="_blank" rel="noopener" class="btn btn--primary">
                   VIEW ON GITHUB
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
                 </a>
+                <a href="https://mediexplain.streamlit.app" target="_blank" rel="noopener" class="btn btn--primary">LIVE DEMO</a>
               </div>
             </div>
           </article>
