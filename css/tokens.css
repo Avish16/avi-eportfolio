@@ -40,8 +40,8 @@
   --c-border-cool: rgba(94, 234, 212, 0.3);
 
   /* ---------- TYPOGRAPHY ---------- */
-  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body:    'Source Sans 3', system-ui, sans-serif;
   --font-mono:    'JetBrains Mono', 'Courier New', monospace;
 
   /* ---------- TYPE SCALE ---------- */

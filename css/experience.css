@@ -200,18 +200,23 @@
    THE DETAIL PANEL (description card on opposite side)
    ========================================================= */
 .tl-panel {
-  background: var(--c-night-2);
+  background: linear-gradient(180deg, rgba(14, 20, 40, 0.95) 0%, rgba(10, 14, 26, 0.98) 100%);
   border: 1px solid var(--c-border);
   border-radius: var(--r-lg);
   padding: var(--sp-5) var(--sp-6);
   max-width: 460px;
   position: relative;
-  transition: all var(--dur-med) var(--ease-out);
+  transition: border-color var(--dur-med) var(--ease-out),
+              background var(--dur-med) var(--ease-out),
+              box-shadow var(--dur-med) var(--ease-out),
+              transform var(--dur-med) var(--ease-out);
 }
 .tl-panel:hover,
 .tl-row.is-active .tl-panel {
   border-color: var(--c-border-warm);
   background: var(--c-night-3);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+  transform: translateY(-2px);
 }
 
 .tl-panel__company-row {
