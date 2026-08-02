@@ -42,8 +42,11 @@ ABOUT AVI:
 - Contact: asharm78@syr.edu | linkedin.com/in/avi-sharma16 | github.com/Avish16 | 315-418-3188
 
 CURRENT ROLES:
-- Data Science Intern at MoMacMo (Sep 2025-present): built AWS pipelines ingesting 3.6+ TB of high-frequency sensor data from scratch; VGG16 transfer learning + XGBoost inference workflows hitting 90%+ accuracy.
+- AI Research Analyst at Syracuse University (Jun 2026-present): built a schema-agnostic descriptive statistics engine in pure Python, Pandas, and Polars with byte-identical output across three 2024 election social media datasets; used those verified stats as ground truth to evaluate LLM analytical reliability on factual accuracy, fabricated values, and confidence calibration.
 - AI Researcher, Healthcare AI at Syracuse (Jan 2025-present): CNN-based medical image classification with transfer learning; one project won Best Project - Fall 2025.
+
+PAST ROLES:
+- Data Science Intern at MoMacMo (Sep 2025-May 2026): built AWS pipelines ingesting 3.6+ TB of high-frequency sensor data from scratch; VGG16 transfer learning + XGBoost inference workflows hitting 90%+ accuracy.
 
 KEY PROJECTS:
 - MediExplain: 18-component agentic AI system explaining medical documents; ChromaDB RAG, JSON validation + retry logic, Streamlit UI.

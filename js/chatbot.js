@@ -16,8 +16,12 @@
       reply: "I'm Avi Sharma — an M.S. in Applied Data Science candidate at Syracuse University, graduating May 2026. I build end-to-end systems that turn complex data into decisions, from seismic signal processing on AWS to medical AI agents to city-scale geospatial analytics."
     },
     {
-      match: /\b(what.*work|current job|momacmo|intern)\b/i,
-      reply: "Right now I'm a Data Science Intern at MoMacMo (since Sep 2025). I built cloud pipelines on AWS to ingest and analyze 3.6+ TB of high-frequency sensor data from scratch, and designed inference workflows using VGG16 transfer learning and XGBoost — hitting over 90% accuracy on event detection."
+      match: /\b(what.*work|current job|ai research analyst|research analyst)\b/i,
+      reply: "Right now I'm an AI Research Analyst at Syracuse University (since Jun 2026). I built a schema-agnostic descriptive statistics engine in Python, Pandas, and Polars with byte-identical output across three 2024 election social media datasets, then used those stats as ground truth to evaluate LLM analytical reliability — scoring models on factual accuracy, fabricated values, and confidence calibration."
+    },
+    {
+      match: /\b(momacmo|intern|internship)\b/i,
+      reply: "I was a Data Science Intern at MoMacMo from Sep 2025 to May 2026. I built cloud pipelines on AWS to ingest and analyze 3.6+ TB of high-frequency sensor data from scratch, and designed inference workflows using VGG16 transfer learning and XGBoost — hitting over 90% accuracy on event detection."
     },
     {
       match: /\b(mediexplain|medical.*ai|rag|agentic)\b/i,

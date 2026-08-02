@@ -65,25 +65,62 @@
       <div class="timeline__inner">
 
         <!-- The snaking dotted path behind the nodes -->
-        <svg class="timeline__path" viewBox="0 0 800 1600" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="timeline__path" viewBox="0 0 800 1920" preserveAspectRatio="none" aria-hidden="true">
           <path class="timeline__path-line"
             d="M 600 60
                C 600 200, 200 240, 200 380
                C 200 520, 600 560, 600 700
                C 600 840, 200 880, 200 1020
                C 200 1160, 600 1200, 600 1340
-               L 600 1500" />
+               C 600 1480, 200 1520, 200 1660
+               L 200 1800" />
         </svg>
 
-        <!-- ROW 1 — MoMacMo (current) -->
+        <!-- ROW 1 — AI Research Analyst (current) -->
         <div class="tl-row is-active" data-row="1">
+          <div class="tl-row__marker">
+            <div class="tl-marker">
+              <span class="tl-marker__lvl">LV. 05</span>
+              <div class="tl-marker__circle">A</div>
+              <div class="tl-marker__label">AI Research</div>
+              <div class="tl-marker__date">Jun 2026 — Present</div>
+              <div class="tl-marker__youarehere">You are here</div>
+            </div>
+          </div>
+          <div class="tl-row__panel">
+            <article class="tl-panel">
+              <div class="tl-panel__company-row">
+                <div class="tl-panel__company">
+                  <span class="tl-panel__chip">A</span>
+                  <span>Syracuse University</span>
+                </div>
+                <span class="tl-panel__lvl-mini">LV. 05</span>
+              </div>
+              <h3 class="tl-panel__role">AI Research Analyst</h3>
+              <p class="tl-panel__dates">Jun 2026 — Present</p>
+              <p class="tl-panel__desc">
+                Built a schema-agnostic descriptive statistics engine in pure Python, Pandas, and Polars, verifying byte-identical output across three 2024 election social media datasets. Used those verified stats as ground truth to evaluate LLM analytical reliability, scoring models on factual accuracy, fabricated values, and confidence calibration.
+              </p>
+              <div class="tl-panel__tech">
+                <span class="pill pill--data">Python</span>
+                <span class="pill pill--data">Pandas</span>
+                <span class="pill pill--data">Polars</span>
+                <span class="pill">LLM Eval</span>
+                <span class="pill">Prompt Engineering</span>
+                <span class="pill">Git</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ROW 2 — MoMacMo -->
+        <div class="tl-row" data-row="2">
           <div class="tl-row__marker">
             <div class="tl-marker">
               <span class="tl-marker__lvl">LV. 04</span>
               <div class="tl-marker__circle">M</div>
               <div class="tl-marker__label">MoMacMo</div>
-              <div class="tl-marker__date">Sep 2025 — Present</div>
-              <div class="tl-marker__youarehere">You are here</div>
+              <div class="tl-marker__date">Sep 2025 — May 2026</div>
             </div>
           </div>
           <div class="tl-row__panel">
@@ -96,7 +133,7 @@
                 <span class="tl-panel__lvl-mini">LV. 04</span>
               </div>
               <h3 class="tl-panel__role">Data Science Intern</h3>
-              <p class="tl-panel__dates">Sep 2025 — Present</p>
+              <p class="tl-panel__dates">Sep 2025 — May 2026</p>
               <p class="tl-panel__desc">
                 Built cloud pipelines on AWS to ingest and analyze 3.6+ TB of high-frequency sensor data end-to-end, from scratch with no existing infrastructure. Designed inference workflows using VGG16 transfer learning and XGBoost for event detection and classification, achieving over 90% accuracy matching expert benchmarks.
               </p>
@@ -112,8 +149,8 @@
           </div>
         </div>
 
-        <!-- ROW 2 — Healthcare AI -->
-        <div class="tl-row" data-row="2">
+        <!-- ROW 3 — Healthcare AI -->
+        <div class="tl-row" data-row="3">
           <div class="tl-row__marker">
             <div class="tl-marker">
               <span class="tl-marker__lvl">LV. 03</span>
@@ -146,8 +183,8 @@
           </div>
         </div>
 
-        <!-- ROW 3 — Syracuse MS -->
-        <div class="tl-row" data-row="3">
+        <!-- ROW 4 — Syracuse MS -->
+        <div class="tl-row" data-row="4">
           <div class="tl-row__marker">
             <div class="tl-marker">
               <span class="tl-marker__lvl">LV. 02</span>
@@ -180,8 +217,8 @@
           </div>
         </div>
 
-        <!-- ROW 4 — NMIMS -->
-        <div class="tl-row" data-row="4">
+        <!-- ROW 5 — NMIMS -->
+        <div class="tl-row" data-row="5">
           <div class="tl-row__marker">
             <div class="tl-marker">
               <span class="tl-marker__lvl">LV. 01</span>
