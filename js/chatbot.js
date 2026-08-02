@@ -44,8 +44,8 @@
       reply: "Northwind Data Warehouse is my end-to-end Snowflake project — dimensional modeling (STG to DW), SQL ETL pipelines, and Power BI dashboards for revenue, delivery, and inventory KPIs. It's coursework but the architecture choices are real."
     },
     {
-      match: /\b(healthcare|research|syracuse.*ai|best project|medical image)\b/i,
-      reply: "I'm an AI Researcher at Syracuse's Healthcare AI lab since Jan 2025. I develop CNN-based deep learning models for medical image classification using transfer learning, with reproducible training pipelines and A/B-style model comparisons. One of our projects was awarded Best Project — Fall 2025."
+      match: /\b(nexis|data science researcher|fatigue|vibration|time-?series analytics)\b/i,
+      reply: "At NEXIS Student Technology Lab (Jan 2025–May 2026) I was a Data Science Researcher applying machine learning, time-series analytics, and hybrid data-physics modeling to reliability and fatigue estimation. I analyzed noisy sensor-style signals, extracted vibration and load features, built regression and classification models, and turned those outputs into research-ready technical insights."
     },
     {
       match: /\b(skill|stack|tech|language|tools)\b/i,

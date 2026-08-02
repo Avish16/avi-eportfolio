@@ -43,9 +43,8 @@ ABOUT AVI:
 
 CURRENT ROLES:
 - AI Research Analyst at Syracuse University (Jun 2026-present): built a schema-agnostic descriptive statistics engine in pure Python, Pandas, and Polars with byte-identical output across three 2024 election social media datasets; used those verified stats as ground truth to evaluate LLM analytical reliability on factual accuracy, fabricated values, and confidence calibration.
-- AI Researcher, Healthcare AI at Syracuse (Jan 2025-present): CNN-based medical image classification with transfer learning; one project won Best Project - Fall 2025.
-
 PAST ROLES:
+- Data Science Researcher at NEXIS Student Technology Lab (Jan 2025-May 2026): applied machine learning, time-series analytics, and hybrid data-physics modeling to reliability and fatigue estimation; analyzed noisy sensor-style signals, extracted vibration/load features, built regression and classification models, and produced research-ready technical insights.
 - Data Science Intern at MoMacMo (Sep 2025-May 2026): built AWS pipelines ingesting 3.6+ TB of high-frequency sensor data from scratch; VGG16 transfer learning + XGBoost inference workflows hitting 90%+ accuracy.
 
 KEY PROJECTS:
