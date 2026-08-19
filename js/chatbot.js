@@ -13,11 +13,19 @@
   const KB = [
     {
       match: /\b(who are you|tell me about yourself|introduce|about you)\b/i,
-      reply: "I'm Avi Sharma — an M.S. in Applied Data Science candidate at Syracuse University, graduating May 2026. I build end-to-end systems that turn complex data into decisions, from seismic signal processing on AWS to medical AI agents to city-scale geospatial analytics."
+      reply: "I'm Avi Sharma — a Full Stack AI Engineer with an M.S. in Applied Data Science from Syracuse. I ship ML-integrated products at Stripe across Radar, Agentic Commerce, and the Payments Foundation Model, and build end-to-end systems from model evaluation harnesses to LLM-powered fraud tooling and real-time analytics."
     },
     {
-      match: /\b(what.*work|current job|ai research analyst|research analyst)\b/i,
-      reply: "Right now I'm an AI Research Analyst at Syracuse University (since Jun 2026). I built a schema-agnostic descriptive statistics engine in Python, Pandas, and Polars with byte-identical output across three 2024 election social media datasets, then used those stats as ground truth to evaluate LLM analytical reliability — scoring models on factual accuracy, fabricated values, and confidence calibration."
+      match: /\b(what.*work|current job|stripe|radar|agentic commerce)\b/i,
+      reply: "I'm a Software Engineer (ML & AI) at Stripe on contract since Jan 2026 — Radar, Agentic Commerce, and Payments Foundation Model. Highlights: React dashboards for real-time Radar ML token-theft signals (<200ms across 800+ accounts), a Python/FastAPI harness evaluating foundation-model embeddings across 12 fraud categories (3B+ annual transactions), and an LLM-powered rule builder that cut merchant rule creation from 45 min to 4 min."
+    },
+    {
+      match: /\b(ai research analyst|research analyst)\b/i,
+      reply: "I'm also an AI Research Analyst at Syracuse University (since Jun 2026). I built a schema-agnostic descriptive statistics engine in Python, Pandas, and Polars with byte-identical output across three 2024 election social media datasets, then used those stats as ground truth to evaluate LLM analytical reliability — scoring models on factual accuracy, fabricated values, and confidence calibration."
+    },
+    {
+      match: /\b(adons|softech|full.?stack|spring boot)\b/i,
+      reply: "At Adons Softech (Feb 2022–Jul 2024) I was an Associate Software Engineer building production React frontends and Java/Spring Boot APIs on PostgreSQL — supporting $2M+ annual transaction volume, cutting recurring frontend effort ~25%, reducing production defects ~19%, and speeding deployments ~30% with Git, Jenkins, and Docker."
     },
     {
       match: /\b(momacmo|intern|internship)\b/i,
@@ -49,7 +57,7 @@
     },
     {
       match: /\b(skill|stack|tech|language|tools)\b/i,
-      reply: "My core stack: Python, SQL, R for code. PyTorch, scikit-learn, XGBoost, OpenCV, Hugging Face Transformers for ML/DL. AWS (S3, EC2), Snowflake, PostgreSQL, ChromaDB for infra and data. Streamlit, Power BI, Tableau, Folium for surfaces. And LLMs, RAG, and multi-agent systems for the generative work."
+      reply: "Core stack: Python, TypeScript, JavaScript, Java. React + WebSocket on the frontend; FastAPI and Spring Boot on the backend. For ML/AI: LLMs, RAG, prompt engineering, embedding evaluation, PyTorch. Data layer: PostgreSQL, SQL. DevOps: Docker, Jenkins, Git."
     },
     {
       match: /\b(education|degree|syracuse|nmims|university|study)\b/i,

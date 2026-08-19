@@ -65,7 +65,7 @@
       <div class="timeline__inner">
 
         <!-- The snaking dotted path behind the nodes -->
-        <svg class="timeline__path" viewBox="0 0 800 1920" preserveAspectRatio="none" aria-hidden="true">
+        <svg class="timeline__path" viewBox="0 0 800 2560" preserveAspectRatio="none" aria-hidden="true">
           <path class="timeline__path-line"
             d="M 600 60
                C 600 200, 200 240, 200 380
@@ -73,17 +73,19 @@
                C 600 840, 200 880, 200 1020
                C 200 1160, 600 1200, 600 1340
                C 600 1480, 200 1520, 200 1660
-               L 200 1800" />
+               C 200 1800, 600 1840, 600 1980
+               C 600 2120, 200 2160, 200 2300
+               L 200 2440" />
         </svg>
 
-        <!-- ROW 1 — AI Research Analyst (current) -->
+        <!-- ROW 1 — Stripe (current) -->
         <div class="tl-row is-active" data-row="1">
           <div class="tl-row__marker">
             <div class="tl-marker">
-              <span class="tl-marker__lvl">LV. 05</span>
-              <div class="tl-marker__circle">A</div>
-              <div class="tl-marker__label">AI Research</div>
-              <div class="tl-marker__date">Jun 2026 — Present</div>
+              <span class="tl-marker__lvl">LV. 07</span>
+              <div class="tl-marker__circle">S</div>
+              <div class="tl-marker__label">Stripe</div>
+              <div class="tl-marker__date">Jan 2026 — Present</div>
               <div class="tl-marker__youarehere">You are here</div>
             </div>
           </div>
@@ -91,10 +93,46 @@
             <article class="tl-panel">
               <div class="tl-panel__company-row">
                 <div class="tl-panel__company">
-                  <span class="tl-panel__chip">A</span>
+                  <span class="tl-panel__chip">S</span>
+                  <span>Stripe · Contract</span>
+                </div>
+                <span class="tl-panel__lvl-mini">LV. 07</span>
+              </div>
+              <h3 class="tl-panel__role">Software Engineer · ML &amp; AI, Radar &amp; Agentic Commerce</h3>
+              <p class="tl-panel__dates">Jan 2026 — Present</p>
+              <p class="tl-panel__desc">
+                Shipping ML-integrated product surfaces across Radar, Agentic Commerce, and the Payments Foundation Model. Built a React dashboard for real-time token-theft signals via the Radar ML API (&lt;200ms latency across 800+ enterprise accounts), developed a Python + FastAPI evaluation harness benchmarking foundation-model embeddings across 12 fraud signal categories (informing rollout touching 3B+ annual transactions), and contributed to an LLM-powered Radar rule builder that cut merchant rule-creation time from 45 min to 4 min. Also rebuilt Stripe Billing analytics on React + WebSocket (8s → 900ms) and added CI/CD regression gates for fraud intervention models holding &lt;0.3% false-positive rate.
+              </p>
+              <div class="tl-panel__tech">
+                <span class="pill pill--data">Python</span>
+                <span class="pill pill--data">FastAPI</span>
+                <span class="pill pill--data">LLMs</span>
+                <span class="pill">React</span>
+                <span class="pill">TypeScript</span>
+                <span class="pill">ML Eval</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ROW 2 — AI Research Analyst -->
+        <div class="tl-row" data-row="2">
+          <div class="tl-row__marker">
+            <div class="tl-marker">
+              <span class="tl-marker__lvl">LV. 06</span>
+              <div class="tl-marker__circle" style="color: var(--c-data); border-color: var(--c-border-cool);">A</div>
+              <div class="tl-marker__label">AI Research</div>
+              <div class="tl-marker__date">Jun 2026 — Present</div>
+            </div>
+          </div>
+          <div class="tl-row__panel">
+            <article class="tl-panel">
+              <div class="tl-panel__company-row">
+                <div class="tl-panel__company">
+                  <span class="tl-panel__chip tl-panel__chip--data">A</span>
                   <span>Syracuse University</span>
                 </div>
-                <span class="tl-panel__lvl-mini">LV. 05</span>
+                <span class="tl-panel__lvl-mini">LV. 06</span>
               </div>
               <h3 class="tl-panel__role">AI Research Analyst</h3>
               <p class="tl-panel__dates">Jun 2026 — Present</p>
@@ -113,11 +151,11 @@
           </div>
         </div>
 
-        <!-- ROW 2 — MoMacMo -->
-        <div class="tl-row" data-row="2">
+        <!-- ROW 3 — MoMacMo -->
+        <div class="tl-row" data-row="3">
           <div class="tl-row__marker">
             <div class="tl-marker">
-              <span class="tl-marker__lvl">LV. 04</span>
+              <span class="tl-marker__lvl">LV. 05</span>
               <div class="tl-marker__circle">M</div>
               <div class="tl-marker__label">MoMacMo</div>
               <div class="tl-marker__date">Sep 2025 — May 2026</div>
@@ -130,7 +168,7 @@
                   <span class="tl-panel__chip">M</span>
                   <span>MoMacMo</span>
                 </div>
-                <span class="tl-panel__lvl-mini">LV. 04</span>
+                <span class="tl-panel__lvl-mini">LV. 05</span>
               </div>
               <h3 class="tl-panel__role">Data Science Intern</h3>
               <p class="tl-panel__dates">Sep 2025 — May 2026</p>
@@ -149,11 +187,11 @@
           </div>
         </div>
 
-        <!-- ROW 3 — NEXIS -->
-        <div class="tl-row" data-row="3">
+        <!-- ROW 4 — NEXIS -->
+        <div class="tl-row" data-row="4">
           <div class="tl-row__marker">
             <div class="tl-marker">
-              <span class="tl-marker__lvl">LV. 03</span>
+              <span class="tl-marker__lvl">LV. 04</span>
               <div class="tl-marker__circle" style="color: var(--c-data); border-color: var(--c-border-cool);">N</div>
               <div class="tl-marker__label">NEXIS</div>
               <div class="tl-marker__date">Jan 2025 — May 2026</div>
@@ -166,12 +204,12 @@
                   <span class="tl-panel__chip tl-panel__chip--data">N</span>
                   <span>NEXIS Student Technology Lab</span>
                 </div>
-                <span class="tl-panel__lvl-mini">LV. 03</span>
+                <span class="tl-panel__lvl-mini">LV. 04</span>
               </div>
               <h3 class="tl-panel__role">Data Science Researcher</h3>
               <p class="tl-panel__dates">Jan 2025 — May 2026</p>
               <p class="tl-panel__desc">
-                At NEXIS, I work as a Research Data Scientist focused on applying machine learning, time-series analytics, and hybrid data-physics modeling to reliability and fatigue estimation problems. My work involves analyzing noisy sensor-style signals, extracting vibration and load-related features, building regression and classification models, and translating model outputs into research-ready technical insights. This experience strengthened my ability to work across data science and physical-system analytics, especially in areas such as vibration behavior, fatigue-risk prediction, signal preprocessing, model validation, and technical reporting for engineering and research stakeholders.
+                Applied machine learning, time-series analytics, and hybrid data-physics modeling to reliability and fatigue estimation. Analyzed noisy sensor-style signals, extracted vibration and load-related features, built regression and classification models, and translated model outputs into research-ready technical insights for engineering stakeholders.
               </p>
               <div class="tl-panel__tech">
                 <span class="pill pill--data">Machine Learning</span>
@@ -184,11 +222,11 @@
           </div>
         </div>
 
-        <!-- ROW 4 — Syracuse MS -->
-        <div class="tl-row" data-row="4">
+        <!-- ROW 5 — Syracuse MS -->
+        <div class="tl-row" data-row="5">
           <div class="tl-row__marker">
             <div class="tl-marker">
-              <span class="tl-marker__lvl">LV. 02</span>
+              <span class="tl-marker__lvl">LV. 03</span>
               <div class="tl-marker__circle" style="color: var(--c-cream); border-color: rgba(245, 230, 211, 0.4);">S</div>
               <div class="tl-marker__label">Syracuse MS</div>
               <div class="tl-marker__date">Aug 2024 — May 2026</div>
@@ -201,7 +239,7 @@
                   <span class="tl-panel__chip tl-panel__chip--cream">S</span>
                   <span>Syracuse University</span>
                 </div>
-                <span class="tl-panel__lvl-mini">LV. 02</span>
+                <span class="tl-panel__lvl-mini">LV. 03</span>
               </div>
               <h3 class="tl-panel__role">M.S. in Applied Data Science</h3>
               <p class="tl-panel__dates">Aug 2024 — May 2026</p>
@@ -218,8 +256,44 @@
           </div>
         </div>
 
-        <!-- ROW 5 — NMIMS -->
-        <div class="tl-row" data-row="5">
+        <!-- ROW 6 — Adons Softech -->
+        <div class="tl-row" data-row="6">
+          <div class="tl-row__marker">
+            <div class="tl-marker">
+              <span class="tl-marker__lvl">LV. 02</span>
+              <div class="tl-marker__circle" style="color: var(--c-signal-soft); border-color: var(--c-border-warm);">A</div>
+              <div class="tl-marker__label">Adons Softech</div>
+              <div class="tl-marker__date">Feb 2022 — Jul 2024</div>
+            </div>
+          </div>
+          <div class="tl-row__panel">
+            <article class="tl-panel">
+              <div class="tl-panel__company-row">
+                <div class="tl-panel__company">
+                  <span class="tl-panel__chip">A</span>
+                  <span>Adons Softech · Full-time</span>
+                </div>
+                <span class="tl-panel__lvl-mini">LV. 02</span>
+              </div>
+              <h3 class="tl-panel__role">Associate Software Engineer · Full Stack</h3>
+              <p class="tl-panel__dates">Feb 2022 — Jul 2024</p>
+              <p class="tl-panel__desc">
+                Built production full-stack systems on React and Java/Spring Boot — REST APIs for auth, validation, and transaction processing backed by PostgreSQL workflows supporting $2M+ annual volume. Shipped reusable frontend components and state workflows (25% less recurring effort), hardened reliability with centralized exception handling and automated testing (19% fewer production defects), and automated Git/Jenkins/Docker deployments (30% faster turnaround) across 20+ releases.
+              </p>
+              <div class="tl-panel__tech">
+                <span class="pill pill--data">React</span>
+                <span class="pill pill--data">Java</span>
+                <span class="pill">Spring Boot</span>
+                <span class="pill">PostgreSQL</span>
+                <span class="pill">Docker</span>
+                <span class="pill">Jenkins</span>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ROW 7 — NMIMS -->
+        <div class="tl-row" data-row="7">
           <div class="tl-row__marker">
             <div class="tl-marker">
               <span class="tl-marker__lvl">LV. 01</span>
